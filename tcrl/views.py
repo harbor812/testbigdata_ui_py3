@@ -362,7 +362,7 @@ def bug_search(request):
                 if bug_id:
                     bug_idd = "bug_id='" + bug_id + "' and "
                 if bug_name:
-                    bug_namen = "bug_name like %" + bug_name + "% and "
+                    bug_namen = "bug_name like '%" + bug_name + "%' and "
                 if status:
                     status_s = "bug_status ='" + status + "' and "
                 if date_from:
