@@ -36,4 +36,6 @@ urlpatterns = [
     url(r'^day_search', views.day_search),
     url(r'^bug_search', views.bug_search),
     url(r'^jenkins_search', views.jenkins_search),
+    url(r'^message', views.chat33),
+    url(r'^echo_once1', views.echo_once1),
 ]

@@ -4,6 +4,9 @@ import json
 from django.template import RequestContext
 from django import forms
 from tcrl import models
+from dwebsocket.decorators import accept_websocket,require_websocket
+import paramiko
+import datetime,time
 # Create your views here.
 
 
@@ -362,7 +365,7 @@ def bug_search(request):
                 if bug_id:
                     bug_idd = "bug_id='" + bug_id + "' and "
                 if bug_name:
-                    bug_namen = "bug_name like %" + bug_name + "% and "
+                    bug_namen = "bug_name like '%" + bug_name + "%' and "
                 if status:
                     status_s = "bug_status ='" + status + "' and "
                 if date_from:
@@ -383,3 +386,59 @@ def bug_search(request):
         else:
             response = HttpResponseRedirect('/login/')
             return response
+
+######################################################################################
+
+def chat33(request):
+    return render(request, 'message.html')
+
+def exec_command(comm):
+    starttime = datetime.datetime.now()
+    print (comm,starttime)
+    username = 'qa'
+    password = 'QAadmin@123'
+
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh.connect('113.107.166.5',19116,username=username, password=password)
+    stdin, stdout, stderr = ssh.exec_command(comm)
+    result = stdout.readlines()
+    ssh.close()
+    result=str(result)
+    result=result.replace('\\n','').replace('[','').replace(']','')
+    result = result.replace('\',', '\'\n').encode('utf-8').strip()
+    return result
+
+
+@require_websocket
+def echo_once1(request):
+    print('###########################################')
+    print (request.is_websocket())
+    if not request.is_websocket():  # 判断是不是websocket连接
+        try:  # 如果是普通的http方法
+            message = request.GET['message']
+            return HttpResponse(message)
+        except:
+            return render(request, 'message.html')
+    else:
+        for message in request.websocket:
+            message = message.decode('utf-8')
+            if message == 'backup_all':#这里根据web页面获取的值进行对应的操作
+                starttime=datetime.datetime.now()
+                date=str(datetime.date.today())+' 23:00:00'
+                endtime=datetime.datetime.strptime(date,'%Y-%m-%d %H:%M:%S')
+                command = 'cat /python/myapi.log'#这里是要执行的命令或者脚本
+                print ('###########################################')
+                print (exec_command(command))
+                jg=""
+                jg1=""
+                while starttime < endtime and request.websocket:
+                     jg=exec_command(command)
+                     if jg != jg1:
+                          request.websocket.send(jg)  # 发送消息到客户端
+                     #    request.websocket.send("test")
+                          jg1=jg
+                     time.sleep(30)
+                     starttime = datetime.datetime.now()
+            else:
+                request.websocket.send('没权限!!!'.encode('utf-8'))
