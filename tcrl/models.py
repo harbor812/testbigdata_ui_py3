@@ -44,7 +44,7 @@ class testbigdata(models.Manager):
         return row
     def fencicommitcode_30count(self,st):
         cursor = connection.cursor()
-        cursor.execute("""select keyword,sum(count_num) as sm,GROUP_CONCAT(DISTINCT bug_id) as bug_id,count(commitcode) as commitcode,GROUP_CONCAT(DISTINCT commitcode)  from keywords where object_id =%s and DATE_SUB(CURDATE(), INTERVAL 30 DAY) <=date(create_date) GROUP BY keyword ORDER BY sm desc LIMIT 10 """,[st])
+        cursor.execute("""select keyword,sum(count_num) as sm,GROUP_CONCAT(DISTINCT bug_id) as bug_id,count(commitcode) as commitcode,GROUP_CONCAT(DISTINCT commitcode)  from keywords where object_id =%s and DATE_SUB(CURDATE(), INTERVAL 30 DAY) <=date(create_date)   GROUP BY keyword having sm != commitcode ORDER BY sm desc LIMIT 10 """,[st])
         row=cursor.fetchall()
         return row
 

@@ -15,24 +15,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="table_basic.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/table_basic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9101">
+            <state relative-caret-position="76">
               <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-              <folding>
-                <element signature="e#3682#3886#0#HTML" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -40,8 +28,8 @@
       <file leaf-file-name="table_basic_bigdata.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/table_basic_bigdata.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="161" column="67" lean-forward="true" selection-start-line="161" selection-start-column="67" selection-end-line="161" selection-end-column="67" />
+            <state relative-caret-position="3059">
+              <caret line="161" column="67" lean-forward="false" selection-start-line="161" selection-start-column="67" selection-end-line="161" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -57,52 +45,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tcrl/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="104" column="27" lean-forward="true" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
+            <state relative-caret-position="174">
+              <caret line="39" column="31" lean-forward="false" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
               <folding>
-                <marker date="1515758869538" expanded="true" signature="414:460" ph="SELECT count... bug" />
-                <marker date="1515758869538" expanded="true" signature="616:660" ph="SELECT count... bug" />
-                <marker date="1515758869538" expanded="true" signature="810:854" ph="SELECT count... jenkins_source" />
-                <marker date="1515758869538" expanded="true" signature="1030:1158" ph="select date_... " />
-                <marker date="1515758869538" expanded="true" signature="1030:1178" ph="select date_... bug" />
-                <marker date="1515758869538" expanded="true" signature="1370:1512" ph="select date_... jenkins_source" />
-                <marker date="1515758869538" expanded="true" signature="1675:1884" ph="select keywo... day_keywords" />
-                <marker date="1515758869538" expanded="true" signature="2049:2329" ph="select keywo... keywords" />
-                <marker date="1515758869538" expanded="true" signature="2436:2504" ph="select bug_i... " />
-                <marker date="1515758869538" expanded="true" signature="2436:2535" ph="select bug_i... " />
-                <marker date="1515758869538" expanded="true" signature="2436:2537" ph="select bug_i... " />
-                <marker date="1515758869538" expanded="true" signature="2436:2547" ph="select bug_i... " />
-                <marker date="1515758869538" expanded="true" signature="2436:5297" ph="select bug_i... " />
-                <marker date="1515758869538" expanded="true" signature="2708:2787" ph="select bug_i... " />
-                <marker date="1515758869538" expanded="true" signature="2956:3060" ph="select commi... " />
-                <marker date="1515758869538" expanded="true" signature="3228:3327" ph="select commi... " />
-                <marker date="1515758869538" expanded="true" signature="3228:3329" ph="select commi... " />
-                <marker date="1515758869538" expanded="true" signature="3497:3576" ph="select commi... " />
-                <marker date="1515758869538" expanded="true" signature="3740:3962" ph="select chang... changename_statistics" />
-                <marker date="1515758869538" expanded="true" signature="3740:4161" ph="select commi... " />
-                <marker date="1515758869538" expanded="true" signature="3740:5297" ph="select chang... changename_statistics" />
-                <marker date="1515758869538" expanded="true" signature="4346:4523" ph="select date,... " />
-                <marker date="1515758869538" expanded="true" signature="4699:4788" ph="select bug_i... " />
-                <marker date="1515758869538" expanded="true" signature="4968:5075" ph="select commi... " />
+                <marker date="1516260691601" expanded="true" signature="414:460" ph="SELECT count... bug" />
+                <marker date="1516260691601" expanded="true" signature="616:660" ph="SELECT count... bug" />
+                <marker date="1516260691601" expanded="true" signature="810:854" ph="SELECT count... jenkins_source" />
+                <marker date="1516260691601" expanded="true" signature="1030:1158" ph="select date_... " />
+                <marker date="1516260691601" expanded="true" signature="1030:1178" ph="select date_... bug" />
+                <marker date="1516260691601" expanded="true" signature="1370:1512" ph="select date_... jenkins_source" />
+                <marker date="1516260691601" expanded="true" signature="1675:1884" ph="select keywo... day_keywords" />
+                <marker date="1516260691601" expanded="true" signature="2049:2355" ph="select keywo... keywords" />
+                <marker date="1516260691601" expanded="true" signature="2462:2530" ph="select bug_i... " />
+                <marker date="1516260691601" expanded="true" signature="2462:2561" ph="select bug_i... " />
+                <marker date="1516260691601" expanded="true" signature="2462:2563" ph="select bug_i... " />
+                <marker date="1516260691601" expanded="true" signature="2462:2573" ph="select bug_i... " />
+                <marker date="1516260691601" expanded="true" signature="2734:2813" ph="select bug_i... " />
+                <marker date="1516260691601" expanded="true" signature="2982:3086" ph="select commi... " />
+                <marker date="1516260691601" expanded="true" signature="3254:3353" ph="select commi... " />
+                <marker date="1516260691601" expanded="true" signature="3254:3355" ph="select commi... " />
+                <marker date="1516260691601" expanded="true" signature="3523:3602" ph="select commi... " />
+                <marker date="1516260691601" expanded="true" signature="3766:3988" ph="select chang... changename_statistics" />
+                <marker date="1516260691601" expanded="true" signature="3766:4187" ph="select commi... " />
+                <marker date="1516260691601" expanded="true" signature="4372:4549" ph="select date,... " />
+                <marker date="1516260691601" expanded="true" signature="4725:4814" ph="select bug_i... " />
+                <marker date="1516260691601" expanded="true" signature="4994:5101" ph="select commi... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tcrl/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="283" column="31" lean-forward="true" selection-start-line="283" selection-start-column="31" selection-end-line="283" selection-end-column="31" />
+            <state relative-caret-position="1805">
+              <caret line="360" column="0" lean-forward="false" selection-start-line="360" selection-start-column="0" selection-end-line="360" selection-end-column="0" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
+                <element signature="e#267#524#0" expanded="false" />
                 <element signature="e#553#1371#0" expanded="false" />
                 <element signature="e#1408#2504#0" expanded="false" />
                 <element signature="e#2544#2666#0" expanded="false" />
-                <element signature="e#2716#4705#0" expanded="false" />
                 <element signature="e#4757#6888#0" expanded="false" />
                 <element signature="e#6942#9179#0" expanded="false" />
                 <element signature="e#9230#9837#0" expanded="false" />
@@ -111,10 +97,19 @@
                 <element signature="e#11450#12267#0" expanded="false" />
                 <element signature="e#12333#13053#0" expanded="false" />
                 <element signature="e#13107#13853#0" expanded="false" />
+                <element signature="e#13890#15399#0" expanded="false" />
                 <element signature="e#15445#17344#0" expanded="false" />
-                <element signature="e#17385#19863#0" expanded="false" />
-                <marker date="1515757416764" expanded="false" signature="262:522" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testbigdata/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1615">
+              <caret line="85" column="12" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -122,8 +117,8 @@
       <file leaf-file-name="table_daydata_search.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/table_daydata_search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="159" column="51" lean-forward="true" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
+            <state relative-caret-position="3021">
+              <caret line="159" column="51" lean-forward="false" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -132,7 +127,7 @@
       <file leaf-file-name="table_bug_search.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/table_bug_search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
+            <state relative-caret-position="3458">
               <caret line="182" column="65" lean-forward="false" selection-start-line="182" selection-start-column="65" selection-end-line="182" selection-end-column="65" />
               <folding />
             </state>
@@ -142,7 +137,7 @@
       <file leaf-file-name="table_jenkins_search.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/table_jenkins_search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
+            <state relative-caret-position="3021">
               <caret line="159" column="65" lean-forward="false" selection-start-line="159" selection-start-column="65" selection-end-line="159" selection-end-column="65" />
               <folding />
             </state>
@@ -152,7 +147,7 @@
       <file leaf-file-name="table_advanced.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/table_advanced.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
+            <state relative-caret-position="1957">
               <caret line="103" column="65" lean-forward="false" selection-start-line="103" selection-start-column="65" selection-end-line="103" selection-end-column="65" />
               <folding />
             </state>
@@ -206,7 +201,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/testbigdata/settings.py" />
         <option value="$PROJECT_DIR$/testbigdata/static/static_dirs/assets/plugins/jqvmap/jqvmap/jquery.vmap.js" />
         <option value="$PROJECT_DIR$/testbigdata/static/static_dirs/assets/scripts/custom/index.js" />
         <option value="$PROJECT_DIR$/testbigdata/static/static_dirs/assets/css/style.css" />
@@ -219,13 +213,14 @@
         <option value="$PROJECT_DIR$/testbigdata/urls.py" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/tcrl/views.py" />
-        <option value="$PROJECT_DIR$/tcrl/models.py" />
         <option value="$PROJECT_DIR$/templates/table_daydata_search.html" />
         <option value="$PROJECT_DIR$/templates/table_bug_search.html" />
         <option value="$PROJECT_DIR$/templates/table_jenkins_search.html" />
         <option value="$PROJECT_DIR$/templates/table_advanced.html" />
         <option value="$PROJECT_DIR$/templates/table_jenkins.html" />
+        <option value="$PROJECT_DIR$/testbigdata/settings.py" />
+        <option value="$PROJECT_DIR$/tcrl/views.py" />
+        <option value="$PROJECT_DIR$/tcrl/models.py" />
       </list>
     </option>
   </component>
@@ -256,8 +251,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -308,26 +301,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testbigdata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testbigdata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="tcrl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -570,7 +551,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1699" height="804" extended-state="6" />
+    <frame x="-8" y="-8" width="1699" height="804" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19904932" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -579,7 +560,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.4979204" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29640287" sideWeight="0.40285206" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29640287" sideWeight="0.40285206" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -724,14 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testbigdata/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testbigdata/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -758,9 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="9" column="51" lean-forward="false" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-          <folding>
-            <marker date="1514961081702" expanded="true" signature="29671:29677" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -768,7 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,7 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -784,7 +752,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="529" column="32" lean-forward="false" selection-start-line="529" selection-start-column="21" selection-end-line="529" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -792,9 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-255">
           <caret line="1008" column="20" lean-forward="false" selection-start-line="1008" selection-start-column="19" selection-end-line="1008" selection-end-column="20" />
-          <folding>
-            <marker date="1512556737561" expanded="true" signature="13985:13991" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -802,9 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="1713" column="47" lean-forward="false" selection-start-line="1713" selection-start-column="47" selection-end-line="1713" selection-end-column="47" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -812,9 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="3" column="15842" lean-forward="false" selection-start-line="3" selection-start-column="15841" selection-end-line="3" selection-end-column="15842" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -822,7 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="49">
           <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -830,23 +787,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/table_daydata.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="23" column="65" lean-forward="false" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/table_daydata.html" />
     <entry file="file://$PROJECT_DIR$/testbigdata/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -854,7 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="36" column="44" lean-forward="true" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -862,7 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2736">
           <caret line="51" column="35" lean-forward="true" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -870,31 +816,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/table_basic.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9101">
+        <state relative-caret-position="76">
           <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding>
-            <element signature="e#3682#3886#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/table_daydata_search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="159" column="51" lean-forward="true" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/table_bug_search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
+        <state relative-caret-position="3458">
           <caret line="182" column="65" lean-forward="false" selection-start-line="182" selection-start-column="65" selection-end-line="182" selection-end-column="65" />
           <folding />
         </state>
@@ -902,7 +837,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/table_jenkins_search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
+        <state relative-caret-position="3021">
           <caret line="159" column="65" lean-forward="false" selection-start-line="159" selection-start-column="65" selection-end-line="159" selection-end-column="65" />
           <folding />
         </state>
@@ -910,7 +845,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/table_advanced.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
+        <state relative-caret-position="1957">
           <caret line="103" column="65" lean-forward="false" selection-start-line="103" selection-start-column="65" selection-end-line="103" selection-end-column="65" />
           <folding />
         </state>
@@ -918,8 +853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/table_basic_bigdata.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="161" column="67" lean-forward="true" selection-start-line="161" selection-start-column="67" selection-end-line="161" selection-end-column="67" />
+        <state relative-caret-position="3059">
+          <caret line="161" column="67" lean-forward="false" selection-start-line="161" selection-start-column="67" selection-end-line="161" selection-end-column="67" />
           <folding />
         </state>
       </provider>
@@ -932,49 +867,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tcrl/models.py">
+    <entry file="file://$PROJECT_DIR$/testbigdata/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="104" column="27" lean-forward="true" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
-          <folding>
-            <marker date="1515758869538" expanded="true" signature="414:460" ph="SELECT count... bug" />
-            <marker date="1515758869538" expanded="true" signature="616:660" ph="SELECT count... bug" />
-            <marker date="1515758869538" expanded="true" signature="810:854" ph="SELECT count... jenkins_source" />
-            <marker date="1515758869538" expanded="true" signature="1030:1158" ph="select date_... " />
-            <marker date="1515758869538" expanded="true" signature="1030:1178" ph="select date_... bug" />
-            <marker date="1515758869538" expanded="true" signature="1370:1512" ph="select date_... jenkins_source" />
-            <marker date="1515758869538" expanded="true" signature="1675:1884" ph="select keywo... day_keywords" />
-            <marker date="1515758869538" expanded="true" signature="2049:2329" ph="select keywo... keywords" />
-            <marker date="1515758869538" expanded="true" signature="2436:2504" ph="select bug_i... " />
-            <marker date="1515758869538" expanded="true" signature="2436:2535" ph="select bug_i... " />
-            <marker date="1515758869538" expanded="true" signature="2436:2537" ph="select bug_i... " />
-            <marker date="1515758869538" expanded="true" signature="2436:2547" ph="select bug_i... " />
-            <marker date="1515758869538" expanded="true" signature="2436:5297" ph="select bug_i... " />
-            <marker date="1515758869538" expanded="true" signature="2708:2787" ph="select bug_i... " />
-            <marker date="1515758869538" expanded="true" signature="2956:3060" ph="select commi... " />
-            <marker date="1515758869538" expanded="true" signature="3228:3327" ph="select commi... " />
-            <marker date="1515758869538" expanded="true" signature="3228:3329" ph="select commi... " />
-            <marker date="1515758869538" expanded="true" signature="3497:3576" ph="select commi... " />
-            <marker date="1515758869538" expanded="true" signature="3740:3962" ph="select chang... changename_statistics" />
-            <marker date="1515758869538" expanded="true" signature="3740:4161" ph="select commi... " />
-            <marker date="1515758869538" expanded="true" signature="3740:5297" ph="select chang... changename_statistics" />
-            <marker date="1515758869538" expanded="true" signature="4346:4523" ph="select date,... " />
-            <marker date="1515758869538" expanded="true" signature="4699:4788" ph="select bug_i... " />
-            <marker date="1515758869538" expanded="true" signature="4968:5075" ph="select commi... " />
-          </folding>
+        <state relative-caret-position="1615">
+          <caret line="85" column="12" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/table_daydata_search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3021">
+          <caret line="159" column="51" lean-forward="false" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tcrl/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="283" column="31" lean-forward="true" selection-start-line="283" selection-start-column="31" selection-end-line="283" selection-end-column="31" />
+        <state relative-caret-position="1805">
+          <caret line="360" column="0" lean-forward="false" selection-start-line="360" selection-start-column="0" selection-end-line="360" selection-end-column="0" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#267#524#0" expanded="false" />
             <element signature="e#553#1371#0" expanded="false" />
             <element signature="e#1408#2504#0" expanded="false" />
             <element signature="e#2544#2666#0" expanded="false" />
-            <element signature="e#2716#4705#0" expanded="false" />
             <element signature="e#4757#6888#0" expanded="false" />
             <element signature="e#6942#9179#0" expanded="false" />
             <element signature="e#9230#9837#0" expanded="false" />
@@ -983,9 +901,39 @@
             <element signature="e#11450#12267#0" expanded="false" />
             <element signature="e#12333#13053#0" expanded="false" />
             <element signature="e#13107#13853#0" expanded="false" />
+            <element signature="e#13890#15399#0" expanded="false" />
             <element signature="e#15445#17344#0" expanded="false" />
-            <element signature="e#17385#19863#0" expanded="false" />
-            <marker date="1515757416764" expanded="false" signature="262:522" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tcrl/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="39" column="31" lean-forward="false" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+          <folding>
+            <marker date="1516260691601" expanded="true" signature="414:460" ph="SELECT count... bug" />
+            <marker date="1516260691601" expanded="true" signature="616:660" ph="SELECT count... bug" />
+            <marker date="1516260691601" expanded="true" signature="810:854" ph="SELECT count... jenkins_source" />
+            <marker date="1516260691601" expanded="true" signature="1030:1158" ph="select date_... " />
+            <marker date="1516260691601" expanded="true" signature="1030:1178" ph="select date_... bug" />
+            <marker date="1516260691601" expanded="true" signature="1370:1512" ph="select date_... jenkins_source" />
+            <marker date="1516260691601" expanded="true" signature="1675:1884" ph="select keywo... day_keywords" />
+            <marker date="1516260691601" expanded="true" signature="2049:2355" ph="select keywo... keywords" />
+            <marker date="1516260691601" expanded="true" signature="2462:2530" ph="select bug_i... " />
+            <marker date="1516260691601" expanded="true" signature="2462:2561" ph="select bug_i... " />
+            <marker date="1516260691601" expanded="true" signature="2462:2563" ph="select bug_i... " />
+            <marker date="1516260691601" expanded="true" signature="2462:2573" ph="select bug_i... " />
+            <marker date="1516260691601" expanded="true" signature="2734:2813" ph="select bug_i... " />
+            <marker date="1516260691601" expanded="true" signature="2982:3086" ph="select commi... " />
+            <marker date="1516260691601" expanded="true" signature="3254:3353" ph="select commi... " />
+            <marker date="1516260691601" expanded="true" signature="3254:3355" ph="select commi... " />
+            <marker date="1516260691601" expanded="true" signature="3523:3602" ph="select commi... " />
+            <marker date="1516260691601" expanded="true" signature="3766:3988" ph="select chang... changename_statistics" />
+            <marker date="1516260691601" expanded="true" signature="3766:4187" ph="select commi... " />
+            <marker date="1516260691601" expanded="true" signature="4372:4549" ph="select date,... " />
+            <marker date="1516260691601" expanded="true" signature="4725:4814" ph="select bug_i... " />
+            <marker date="1516260691601" expanded="true" signature="4994:5101" ph="select commi... " />
           </folding>
         </state>
       </provider>
