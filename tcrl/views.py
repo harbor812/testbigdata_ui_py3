@@ -72,7 +72,7 @@ def logout(request):
      response=HttpResponseRedirect('/login/')
      response.delete_cookie('username')
      return response
-#进入泡面番基础数据分析页
+#进入泡面番基础数据分析页:table_basic
 def paomianfan_data(request):
      username=request.COOKIES.get('username','')
      if username:
@@ -85,12 +85,13 @@ def paomianfan_data(request):
          fencihou_30count_list = models.bug.objects.fenci_30count('2')
          fenciios_30count_list=models.bug.objects.fenci_30count('16')
          fenciandrodd_30count_list = models.bug.objects.fenci_30count('15')
+         tool_30count_list = models.bug.objects.fenci_30count('12')
          fencicommitcodeqian_30count_list = models.bug.objects.fencicommitcode_30count('1')
          fencicommitcodehou_30count_list = models.bug.objects.fencicommitcode_30count('2')
          qiancommitcode_buglist = models.bug.objects.commitcode_bug('1')
          houcommitcode_buglist = models.bug.objects.commitcode_bug('2')
 
-         return render_to_response('table_basic.html',{'username':username,
+         return render_to_response('paomianfan_fenxi.html',{'username':username,
                                                        'fenciqian_30count_list':fenciqian_30count_list,
                                                        'fencihou_30count_list':fencihou_30count_list,
                                                        'fencicommitcodeqian_30count_list':fencicommitcodeqian_30count_list,
@@ -98,7 +99,8 @@ def paomianfan_data(request):
                                                        'qiancommitcode_buglist': qiancommitcode_buglist,
                                                        'houcommitcode_buglist': houcommitcode_buglist,
                                                        'fenciios_30count_list': fenciios_30count_list,
-                                                       'fenciandrodd_30count_list': fenciandrodd_30count_list
+                                                       'fenciandrodd__30count_list': fenciandrodd_30count_list,
+                                                       'tool_30count_list': tool_30count_list
                                                        })
      else:
          response = HttpResponseRedirect('/login/')
@@ -395,6 +397,7 @@ def chat33(request):
 def exec_command(comm):
     starttime = datetime.datetime.now()
     print (comm,starttime)
+    rs=[]
     username = 'qa'
     password = 'QAadmin@123'
 
@@ -404,8 +407,12 @@ def exec_command(comm):
     stdin, stdout, stderr = ssh.exec_command(comm)
     result = stdout.readlines()
     ssh.close()
-    result=str(result)
-    result=result.replace('\\n','').replace('[','').replace(']','')
+    # print (result[0])
+    for i in range(len(result)):
+        if 'api.py' in result[i]:
+            rs.append(result[i])
+    result=str(rs)
+    result=result.replace('\\n','').replace('[','').replace(']','').replace('\\x00','')
     result = result.replace('\',', '\'\n').encode('utf-8').strip()
     return result
 

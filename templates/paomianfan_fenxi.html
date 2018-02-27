@@ -1,0 +1,645 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<!-- bug 查询列表页 -->
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+{#<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>#}
+<link href={% static "assets/plugins/font-awesome/css/font-awesome.min.css" %} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href={% static "assets/plugins/bootstrap/css/bootstrap.min.css"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href={% static "assets/plugins/uniform/css/uniform.default.css"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN THEME STYLES -->
+<link href={% static "assets/css/style-metronic.css"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+<link href={% static "assets/css/style.css"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href={% static "assets/css/style-responsive.css"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+<link href={% static "assets/css/plugins.css"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href={% static "assets/css/themes/default.css"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+<link href={% static "assets/css/custom.css"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+
+<!-- END THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico" tppabs="http://www.keenthemes.com/preview/metronic_admin/favicon.ico"/>
+<style type="text/css">
+.wrap{
+max-width: 150px; //设置需要固定的宽度
+white-space: nowrap; //不换行
+text-overflow: ellipsis; //超出部分用....代替
+overflow: hidden; //超出隐藏
+}
+</style>
+{% endblock %}
+{% block detail %}
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<ul class="page-breadcrumb breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index.html" tppabs="http://www.keenthemes.com/preview/metronic_admin/index.html">
+								首页
+							</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+								数据分析
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+								泡面番
+						</li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+            <div class="row">
+								<div class="col-md-6">
+									<div class="portlet box blue tabbable">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="fa fa-reorder"></i>泡面番前端
+											</div>
+										</div>
+										<div class="portlet-body">
+											<div class="tab-head">
+												<ul class="nav nav-tabs">
+													<li>
+														<a href="#portlet_tab_3" data-toggle="tab">
+															 Bug 词频榜单
+														</a>
+													</li>
+													<li>
+														<a href="#portlet_tab_2" data-toggle="tab">
+															 提交代码解决Bug词频榜单
+														</a>
+													</li>
+													<li class="active">
+														<a href="#portlet_tab_1" data-toggle="tab">
+															 程序出现bug频率榜单
+														</a>
+													</li>
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="portlet_tab_1">
+                                                        <div class="portlet-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+								<thead>
+								<tr >
+									<th >
+										 程序名称
+									</th >
+									<th >
+										 bug数
+									</th>
+									<th >
+										 提交次数
+									</th>
+									<th >
+										 bug率
+									</th>
+								</tr>
+								</thead>
+								<tbody style="width: 10px">
+
+                                {% for row in qiancommitcode_buglist %}
+
+								<tr class="active" >
+									<td >
+										 <a href="/jenkins1_detail/{{ row.0 }}" target="_blank">{{ row.0 }}</a>
+									</td >
+									<td >
+                                         {% if row.1 == 0 %}
+                                            {{ row.1 }}
+                                         {% else %}
+                                         	<a href="/bug_detail/{{ row.4 }}-'新建'" target="_blank">{{ row.1 }}</a>
+                                         {% endif %}
+									</td>
+									<td >
+										{{ row.2 }}
+									</td>
+									<td >
+										 {{ row.3 }}%
+									</td>
+
+								</tr>
+                                {% endfor %}
+								</tbody>
+								</table>
+							</div>
+						</div>
+													</div>
+													<div class="tab-pane" id="portlet_tab_2">
+                                                           <div class="portlet-body">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                        <tr >
+                                                                            <th >
+                                                                                 排序
+                                                                            </th >
+                                                                            <th >
+                                                                                 名字
+                                                                            </th>
+                                                                            <th >
+                                                                                 词频数
+                                                                            </th>
+                                                                            <th >
+                                                                                 Bugid
+                                                                            </th>
+                                                                            <th  >
+                                                                                 提交代码次数
+                                                                            </th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody style="width: 10px">
+
+                                                                        {% for row in fencicommitcodeqian_30count_list %}
+
+                                                                        <tr class="active" >
+                                                                            <td >
+                                                                                 {{ forloop.counter }}
+                                                                            </td >
+                                                                            <td >
+                                                                                 {{ row.0 }}
+                                                                            </td>
+                                                                            <td >
+                                                                                {{ row.1 }}
+                                                                            </td>
+                                                                            <td >
+                                                                                 <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+                                                                            </td>
+                                                                            <td  >
+                                                                                 <a href="/jenkins_detail/{{ row.4 }}" target="_blank">{{ row.3 }}</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        {% endfor %}
+                                                                        </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+													</div>
+													<div class="tab-pane" id="portlet_tab_3">
+                                                          <div class="portlet-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>
+                                                                         排序
+                                                                    </th>
+                                                                    <th>
+                                                                         名字
+                                                                    </th>
+                                                                    <th>
+                                                                         词频数
+                                                                    </th>
+                                                                    <th>
+                                                                         bugid
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                {% for row in fenciqian_30count_list %}
+
+                                                                <tr class="active">
+                                                                    <td>
+                                                                         {{ forloop.counter }}
+                                                                    </td>
+                                                                    <td>
+                                                                         {{ row.0 }}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ row.1 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+                                                                    </td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="portlet box red tabbable">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="fa fa-reorder"></i>泡面番后端
+											</div>
+										</div>
+										<div class="portlet-body">
+											<div class="tab-head">
+												<ul class="nav nav-tabs">
+													<li>
+														<a href="#paomianfanhou_tab_3" data-toggle="tab">
+															 Bug 词频榜单
+														</a>
+													</li>
+													<li>
+														<a href="#paomianfanhou_tab_2" data-toggle="tab">
+															 提交代码解决Bug词频榜单
+														</a>
+													</li>
+													<li class="active">
+														<a href="#paomianfanhou_tab_1" data-toggle="tab">
+															 程序出现bug频率榜单
+														</a>
+													</li>
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="paomianfanhou_tab_1">
+                                                        <div class="portlet-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+								<thead>
+									<tr >
+									<th >
+										 程序名称
+									</th >
+									<th >
+										 bug数
+									</th>
+									<th >
+										 提交次数
+									</th>
+									<th >
+										 bug率
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+                             {% for row in houcommitcode_buglist %}
+
+								<tr class="active" >
+									<td >
+										 <a href="/jenkins1_detail/{{ row.0 }}" target="_blank">{{ row.0 }}</a>
+									</td >
+									<td >
+										 {% if row.1 == 0 %}
+                                            {{ row.1 }}
+                                         {% else %}
+                                         	<a href="/bug_detail/{{ row.4 }}-'新建'" target="_blank">{{ row.1 }}</a>
+                                         {% endif %}
+									</td>
+									<td >
+										{{ row.2 }}
+									</td>
+									<td >
+										 {{ row.3 }}%
+									</td>
+
+								</tr>
+								</tr>
+                                {% endfor %}
+
+								</tbody>
+								</table>
+							</div>
+						</div>
+													</div>
+													<div class="tab-pane" id="paomianfanhou_tab_2">
+                                                         <div class="portlet-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+									<th>
+										 排序
+									</th>
+									<th>
+										 名字
+									</th>
+									<th>
+										 词频数
+									</th>
+									<th>
+										 bugid
+									</th>
+                                     <th>
+										 提交代码次数
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+                             {% for row in fencicommitcodehou_30count_list %}
+
+								<tr class="active" >
+									<td >
+										 {{ forloop.counter }}
+									</td >
+									<td >
+										 {{ row.0 }}
+									</td>
+									<td >
+										{{ row.1 }}
+									</td>
+									<td >
+										 <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+									</td>
+                                    <td  >
+										 <a href="/jenkins_detail/{{ row.4 }}" target="_blank">{{ row.3 }}</a>
+									</td>
+								</tr>
+								</tr>
+                                {% endfor %}
+
+								</tbody>
+								</table>
+							</div>
+						</div>
+													</div>
+													<div class="tab-pane" id="paomianfanhou_tab_3">
+                                                         <div class="portlet-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+									<th>
+										 排序
+									</th>
+									<th>
+										 名字
+									</th>
+									<th>
+										 词频数
+									</th>
+									<td >
+										 bugid
+									</td>
+								</tr>
+								</thead>
+								<tbody>
+                             {% for row in fencihou_30count_list %}
+
+								<tr class="active">
+									<td>
+										 {{ forloop.counter }}
+									</td>
+									<td>
+										 {{ row.0 }}
+									</td>
+									<td>
+										{{ row.1 }}
+									</td>
+									<td >
+										 <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+									</td>
+								</tr>
+                                {% endfor %}
+
+								</tbody>
+								</table>
+							</div>
+						</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+            <div class="row">
+								<div class="col-md-6">
+									<div class="portlet box blue tabbable">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="fa fa-reorder"></i>泡面番IOS
+											</div>
+										</div>
+										<div class="portlet-body">
+											<div class="tab-head">
+												<ul class="nav nav-tabs">
+													<li>
+														<a href="#IOS_tab_1" data-toggle="tab">
+															 Bug 词频榜单
+														</a>
+													</li>
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="IOS_tab_1">
+                                                        <div class="portlet-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+								<thead>
+								<tr>
+									<th>
+										 排序
+									</th>
+									<th>
+										 名字
+									</th>
+									<th>
+										 词频数
+									</th>
+									<th>
+										 bugid
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+
+                                {% for row in fenciios_30count_list %}
+
+								<tr class="active">
+									<td>
+										 {{ forloop.counter }}
+									</td>
+									<td>
+										 {{ row.0 }}
+									</td>
+									<td>
+										{{ row.1 }}
+									</td>
+									<td >
+										 <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+									</td>
+								</tr>
+                                {% endfor %}
+								</tbody>
+								</table>
+							</div>
+						</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="portlet box red tabbable">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="fa fa-reorder"></i>泡面番Android
+											</div>
+										</div>
+										<div class="portlet-body">
+											<div class="tab-head">
+												<ul class="nav nav-tabs">
+													<li>
+														<a href="#android_tab_1" data-toggle="tab">
+															 Bug 词频榜单
+														</a>
+													</li>
+
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="android_tab_1">
+                                                        <div class="portlet-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+									<th>
+										 排序
+									</th>
+									<th>
+										 名字
+									</th>
+									<th>
+										 词频数
+									</th>
+									<td >
+										 bugid
+									</td>
+								</tr>
+								</thead>
+								<tbody>
+                             {% for row in fenciandrodd_30count_list %}
+
+								<tr class="active">
+									<td>
+										 {{ forloop.counter }}
+									</td>
+									<td>
+										 {{ row.0 }}
+									</td>
+									<td>
+										{{ row.1 }}
+									</td>
+									<td >
+										 <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+									</td>
+								</tr>
+                                {% endfor %}
+
+								</tbody>
+								</table>
+							</div>
+						</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+            <div class="row">
+								<div class="col-md-6">
+									<div class="portlet box blue tabbable">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="fa fa-reorder"></i>录制工具
+											</div>
+										</div>
+										<div class="portlet-body">
+											<div class="tab-head">
+												<ul class="nav nav-tabs">
+													<li>
+														<a href="#tool_tab_1" data-toggle="tab">
+															 Bug 词频榜单
+														</a>
+													</li>
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="tool_tab_1">
+                                                        <div class="portlet-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>
+                                                                         排序
+                                                                    </th>
+                                                                    <th>
+                                                                         名字
+                                                                    </th>
+                                                                    <th>
+                                                                         词频数
+                                                                    </th>
+                                                                    <th>
+                                                                         bugid
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                {% for row in tool_30count_list %}
+
+                                                                <tr class="active">
+                                                                    <td>
+                                                                         {{ forloop.counter }}
+                                                                    </td>
+                                                                    <td>
+                                                                         {{ row.0 }}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ row.1 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+                                                                    </td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+{% endblock %}
+{% block js %}
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.min.js"></script>
+<script src="assets/plugins/excanvas.min.js"></script>
+<![endif]-->
+<script src={% static "assets/plugins/jquery-1.10.2.min.js"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src={% static "assets/plugins/jquery-migrate-1.2.1.min.js"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<script src={% static "assets/plugins/bootstrap/js/bootstrap.min.js"%}  type="text/javascript"></script>
+<script src={% static "assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src={% static "assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src={% static "assets/plugins/jquery.blockui.min.js"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src={% static "assets/plugins/jquery.cokie.min.js"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src={% static "assets/plugins/uniform/jquery.uniform.min.js"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<script src={% static "assets/scripts/core/app.js"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/scripts/core/app.js"></script>
+<script>
+
+
+jQuery(document).ready(function() {
+    // initiate layout and plugins
+    App.init();
+});
+</script>
+<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();
+</script>
+
+{#</script>#}
+
+{% endblock %}
