@@ -44,12 +44,18 @@ class testbigdata(models.Manager):
         return row
     def fencicommitcode_30count(self,st):
         cursor = connection.cursor()
-        cursor.execute("""select keyword,sum(count_num) as sm,GROUP_CONCAT(DISTINCT bug_id) as bug_id,count(commitcode) as commitcode,GROUP_CONCAT(DISTINCT commitcode)  from keywords where object_id =%s and DATE_SUB(CURDATE(), INTERVAL 30 DAY) <=date(create_date)   GROUP BY keyword having sm != commitcode ORDER BY sm desc LIMIT 10 """,[st])
+        cursor.execute("""select keyword,sum(count_num) as sm,GROUP_CONCAT(DISTINCT bug_id) as bug_id,count(commitcode) as commitcode,GROUP_CONCAT(DISTINCT commitcode)  from keywords where object_id =%s and DATE_SUB(CURDATE(), INTERVAL 30 DAY) <=date(startdate)   GROUP BY keyword having sm != commitcode ORDER BY sm desc LIMIT 10 """,[st])
         row=cursor.fetchall()
         return row
 
     def bug_detail(self,st,st1):
         sql='select bug_id,bug_name,bug_status,date,type,sub_type from bug where bug_id  in (%s) and bug_status=%s'%(st,st1)
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        row=cursor.fetchall()
+        return row
+    def bugname_detail(self,st,st1,st2):
+        sql='select bug_id,bug_name,bug_status,date,type,sub_type from bug where %s and sub_type=%s and bug_status=%s'%(st,st1,st2)
         cursor = connection.cursor()
         cursor.execute(sql)
         row=cursor.fetchall()
@@ -73,7 +79,17 @@ class testbigdata(models.Manager):
         row=cursor.fetchall()
         return row
     def jenkinsmore_detail(self):
-        sql='select commitcode,change_name,change_source,date,object_id  from jenkins_source'
+        sql="""select commitcode,change_name,change_source,date,object_id  from jenkins_source"""
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        row=cursor.fetchall()
+        return row
+    def changename_analyze(self,st):
+        sql="""SELECT DISTINCT js.object_id,js.change_name,cl.level_name,cl.add_count,cl.del_count,cl.result_count,cl.bug_count,ct.keyword,ct.keyword_count,cbp.bug_probability,cbp.sum_bug,cbp.count_changename from jenkins_source as js
+            LEFT JOIN changename_level as cl on js.change_name=cl.change_name and js.object_id=cl.object_id
+            LEFT JOIN changename_topkeyword as ct on js.change_name=ct.change_name and js.object_id=ct.object_id
+            LEFT JOIN changename_bug_probability as cbp on js.change_name=cbp.change_name and js.object_id=cbp.object_id where DATE_SUB(CURDATE(), INTERVAL 90 DAY) <=date(js.date)
+            %s"""%(st)
         cursor = connection.cursor()
         cursor.execute(sql)
         row=cursor.fetchall()

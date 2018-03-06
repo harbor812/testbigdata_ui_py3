@@ -197,6 +197,23 @@ def bugmore_detail(request, page):
         else:
             response = HttpResponseRedirect('/login/')
             return response
+
+# 进入bug查询列表
+def bugname_detail(request, page, page1,page2):
+    username = request.COOKIES.get('username', '')
+    if username:
+        print("进入 bug_detail:", username)
+        userdata = models.User.objects.filter(username__contains=username)
+        for row in userdata:
+            username = row.nickname
+            page = "bug_name like '%" + page + "%'"
+            bugname_count_list = models.bug.objects.bugname_detail(page,page1,page2)
+        return render_to_response('table_advanced.html', {'username': username,
+                                                          'bug_count_list': bugname_count_list}
+                                  )
+    else:
+        response = HttpResponseRedirect('/login/')
+        return response
 #进入jenkins查询列表 commitcode
 def jenkins_detail(request, page):
         username = request.COOKIES.get('username', '')
@@ -246,6 +263,26 @@ def jenkinsmore_detail(request):
             else:
                 response = HttpResponseRedirect('/login/')
                 return response
+
+# 进入代码 问题分析查询列表
+def changename_analyze(request,page):
+                username = request.COOKIES.get('username', '')
+                if username:
+                    print("changename_analyze:", username)
+                    userdata = models.User.objects.filter(username__contains=username)
+                    for row in userdata:
+                        username = row.nickname
+                        if page != 'all':
+                            name ="and  js.change_name=" + '"'+page+'"'
+                            changename_analyze_list = models.bug.objects.changename_analyze(name)
+                        else:
+                            changename_analyze_list = models.bug.objects.changename_analyze("")
+                    return render_to_response('changename_analyze.html', {'username': username,
+                                                                     'changename_analyze_list': changename_analyze_list}
+                                              )
+                else:
+                    response = HttpResponseRedirect('/login/')
+                    return response
 # 进入每日查询列表（暂时废弃）
 def day_detail(request):
             username = request.COOKIES.get('username', '')

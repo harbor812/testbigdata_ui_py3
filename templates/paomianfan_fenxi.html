@@ -83,52 +83,52 @@ overflow: hidden; //超出隐藏
 												<div class="tab-content">
 													<div class="tab-pane active" id="portlet_tab_1">
                                                         <div class="portlet-body">
-							<div class="table-responsive">
-								<table class="table table-bordered table-hover">
-								<thead>
-								<tr >
-									<th >
-										 程序名称
-									</th >
-									<th >
-										 bug数
-									</th>
-									<th >
-										 提交次数
-									</th>
-									<th >
-										 bug率
-									</th>
-								</tr>
-								</thead>
-								<tbody style="width: 10px">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                <tr >
+                                                                    <th >
+                                                                         程序名称
+                                                                    </th >
+                                                                    <th >
+                                                                         bug数
+                                                                    </th>
+                                                                    <th >
+                                                                         提交次数
+                                                                    </th>
+                                                                    <th >
+                                                                         bug率
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody style="width: 10px">
 
-                                {% for row in qiancommitcode_buglist %}
+                                                                {% for row in qiancommitcode_buglist %}
 
-								<tr class="active" >
-									<td >
-										 <a href="/jenkins1_detail/{{ row.0 }}" target="_blank">{{ row.0 }}</a>
-									</td >
-									<td >
-                                         {% if row.1 == 0 %}
-                                            {{ row.1 }}
-                                         {% else %}
-                                         	<a href="/bug_detail/{{ row.4 }}-'新建'" target="_blank">{{ row.1 }}</a>
-                                         {% endif %}
-									</td>
-									<td >
-										{{ row.2 }}
-									</td>
-									<td >
-										 {{ row.3 }}%
-									</td>
+                                                                <tr class="active" >
+                                                                    <td >
+                                                                         <a href="/changename_analyze/{{ row.0 }}" target="_blank">{{ row.0 }}</a>
+                                                                    </td >
+                                                                    <td >
+                                                                         {% if row.1 == 0 %}
+                                                                            {{ row.1 }}
+                                                                         {% else %}
+                                                                            <a href="/bug_detail/{{ row.4 }}-'新建'" target="_blank">{{ row.1 }}</a>
+                                                                         {% endif %}
+                                                                    </td>
+                                                                    <td >
+                                                                        {{ row.2 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         {{ row.3 }}%
+                                                                    </td>
 
-								</tr>
-                                {% endfor %}
-								</tbody>
-								</table>
-							</div>
-						</div>
+                                                                </tr>
+                                                                {% endfor %}
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
 													</div>
 													<div class="tab-pane" id="portlet_tab_2">
                                                            <div class="portlet-body">
@@ -258,148 +258,148 @@ overflow: hidden; //超出隐藏
 												<div class="tab-content">
 													<div class="tab-pane active" id="paomianfanhou_tab_1">
                                                         <div class="portlet-body">
-							<div class="table-responsive">
-								<table class="table table-bordered table-hover">
-								<thead>
-									<tr >
-									<th >
-										 程序名称
-									</th >
-									<th >
-										 bug数
-									</th>
-									<th >
-										 提交次数
-									</th>
-									<th >
-										 bug率
-									</th>
-								</tr>
-								</thead>
-								<tbody>
-                             {% for row in houcommitcode_buglist %}
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr >
+                                                                    <th >
+                                                                         程序名称
+                                                                    </th >
+                                                                    <th >
+                                                                         bug数
+                                                                    </th>
+                                                                    <th >
+                                                                         提交次数
+                                                                    </th>
+                                                                    <th >
+                                                                         bug率
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                             {% for row in houcommitcode_buglist %}
 
-								<tr class="active" >
-									<td >
-										 <a href="/jenkins1_detail/{{ row.0 }}" target="_blank">{{ row.0 }}</a>
-									</td >
-									<td >
-										 {% if row.1 == 0 %}
-                                            {{ row.1 }}
-                                         {% else %}
-                                         	<a href="/bug_detail/{{ row.4 }}-'新建'" target="_blank">{{ row.1 }}</a>
-                                         {% endif %}
-									</td>
-									<td >
-										{{ row.2 }}
-									</td>
-									<td >
-										 {{ row.3 }}%
-									</td>
+                                                                <tr class="active" >
+                                                                    <td >
+                                                                         <a href="/changename_analyze/{{ row.0 }}" target="_blank">{{ row.0 }}</a>
+                                                                    </td >
+                                                                    <td >
+                                                                         {% if row.1 == 0 %}
+                                                                            {{ row.1 }}
+                                                                         {% else %}
+                                                                            <a href="/bug_detail/{{ row.4 }}-'新建'" target="_blank">{{ row.1 }}</a>
+                                                                         {% endif %}
+                                                                    </td>
+                                                                    <td >
+                                                                        {{ row.2 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         {{ row.3 }}%
+                                                                    </td>
 
-								</tr>
-								</tr>
-                                {% endfor %}
+                                                                </tr>
+                                                                </tr>
+                                                                {% endfor %}
 
-								</tbody>
-								</table>
-							</div>
-						</div>
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
 													</div>
 													<div class="tab-pane" id="paomianfanhou_tab_2">
                                                          <div class="portlet-body">
-							<div class="table-responsive">
-								<table class="table table-bordered table-hover">
-								<thead>
-									<tr>
-									<th>
-										 排序
-									</th>
-									<th>
-										 名字
-									</th>
-									<th>
-										 词频数
-									</th>
-									<th>
-										 bugid
-									</th>
-                                     <th>
-										 提交代码次数
-									</th>
-								</tr>
-								</thead>
-								<tbody>
-                             {% for row in fencicommitcodehou_30count_list %}
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                    <th>
+                                                                         排序
+                                                                    </th>
+                                                                    <th>
+                                                                         名字
+                                                                    </th>
+                                                                    <th>
+                                                                         词频数
+                                                                    </th>
+                                                                    <th>
+                                                                         bugid
+                                                                    </th>
+                                                                     <th>
+                                                                         提交代码次数
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                             {% for row in fencicommitcodehou_30count_list %}
 
-								<tr class="active" >
-									<td >
-										 {{ forloop.counter }}
-									</td >
-									<td >
-										 {{ row.0 }}
-									</td>
-									<td >
-										{{ row.1 }}
-									</td>
-									<td >
-										 <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
-									</td>
-                                    <td  >
-										 <a href="/jenkins_detail/{{ row.4 }}" target="_blank">{{ row.3 }}</a>
-									</td>
-								</tr>
-								</tr>
-                                {% endfor %}
+                                                                <tr class="active" >
+                                                                    <td >
+                                                                         {{ forloop.counter }}
+                                                                    </td >
+                                                                    <td >
+                                                                         {{ row.0 }}
+                                                                    </td>
+                                                                    <td >
+                                                                        {{ row.1 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+                                                                    </td>
+                                                                    <td  >
+                                                                         <a href="/jenkins_detail/{{ row.4 }}" target="_blank">{{ row.3 }}</a>
+                                                                    </td>
+                                                                </tr>
+                                                                </tr>
+                                                                {% endfor %}
 
-								</tbody>
-								</table>
-							</div>
-						</div>
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
 													</div>
 													<div class="tab-pane" id="paomianfanhou_tab_3">
                                                          <div class="portlet-body">
-							<div class="table-responsive">
-								<table class="table table-bordered table-hover">
-								<thead>
-									<tr>
-									<th>
-										 排序
-									</th>
-									<th>
-										 名字
-									</th>
-									<th>
-										 词频数
-									</th>
-									<td >
-										 bugid
-									</td>
-								</tr>
-								</thead>
-								<tbody>
-                             {% for row in fencihou_30count_list %}
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                    <th>
+                                                                         排序
+                                                                    </th>
+                                                                    <th>
+                                                                         名字
+                                                                    </th>
+                                                                    <th>
+                                                                         词频数
+                                                                    </th>
+                                                                    <td >
+                                                                         bugid
+                                                                    </td>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                             {% for row in fencihou_30count_list %}
 
-								<tr class="active">
-									<td>
-										 {{ forloop.counter }}
-									</td>
-									<td>
-										 {{ row.0 }}
-									</td>
-									<td>
-										{{ row.1 }}
-									</td>
-									<td >
-										 <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
-									</td>
-								</tr>
-                                {% endfor %}
+                                                                <tr class="active">
+                                                                    <td>
+                                                                         {{ forloop.counter }}
+                                                                    </td>
+                                                                    <td>
+                                                                         {{ row.0 }}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ row.1 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+                                                                    </td>
+                                                                </tr>
+                                                                {% endfor %}
 
-								</tbody>
-								</table>
-							</div>
-						</div>
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
 													</div>
 												</div>
 											</div>
