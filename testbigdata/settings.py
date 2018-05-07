@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tcrl',
+    'rest_framework',
 ]
 #MIDDLEWARE_CLASSES ，MIDDLEWARE
 
@@ -82,7 +83,7 @@ DATABASES = {
         'NAME': 'test_bigdata',
         'USER': 'brian',
         'PASSWORD': 'zwg123456',
-        'HOST': '192.168.130.219',
+        'HOST': '192.168.130.225',
         'PORT': '3306',
     }
 }
@@ -129,3 +130,23 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'testbigdata', 'static', 'static_root')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'testbigdata', 'static', 'static_dirs'),
 )
+
+
+# REST_FRAMEWORK = {
+#     # Use Django's standard `django.contrib.auth` permissions,
+#     # or allow read-only access for unauthenticated users.
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ]
+# }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'cache_table_name',
+        'TIMEOUT': 600,
+        'OPTIONS': {
+            'MAX_ENTRIES': 2000
+        }
+    }
+}

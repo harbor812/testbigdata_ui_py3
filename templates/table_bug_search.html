@@ -49,19 +49,25 @@
                                      <th width="20%">
 										 bug 名称
 									</th>
-									<th width="10%">
+									<th width="5%">
 										 日期开始
 									</th>
-									<th width="10%">
+									<th width="5%">
 										 日期结束
 									</th>
-                                     <th width="10%">
+                                    <th width="5%">
+										 bug 渠道
+									</th>
+                                     <th width="5%">
+										 bug 等级
+									</th>
+                                     <th width="5%">
 										 bug 状态
 									</th>
-                                    <th width="10%">
+                                    <th width="5%">
 										 项目名称
 									</th>
-									<th width="10%">
+									<th width="5%">
 										 子项目名称
 									</th>
 									<th width="5%">
@@ -70,7 +76,7 @@
 								</tr>
 								<tr role="row" class="filter">
                                     <td>
-										<input  name="bug_id" >
+										<input maxlength="10" size='10'  name="bug_id" >
 									</td>
                                      <td>
 										<input  maxlength="20" size='40' name="bug_name" >
@@ -80,6 +86,22 @@
 									</td>
 									<td>
 										<input placeholder="请输入结束时间" onClick="laydate()" name="date_to" readonly="readonly">
+									</td>
+                                     <td>
+										<select name="is_miss_status" class="form-control form-filter input-sm">
+											<option value="">全部</option>
+											<option value="0">测试环境</option>
+											<option value="1">生产环境</option>
+										</select>
+									</td>
+                                     <td>
+										<select name="bug_level" class="form-control form-filter input-sm">
+											<option value="">全部</option>
+											<option value="1">1级别</option>
+											<option value="2">2级别</option>
+											<option value="3">3级别</option>
+											<option value="4">4级别</option>
+										</select>
 									</td>
                                     <td>
 										<select name="status" class="form-control form-filter input-sm">
@@ -94,28 +116,32 @@
 											<option value="">全部</option>
 											<option value="泡面番">泡面番</option>
 											<option value="大数据系统">大数据系统</option>
+                                            <option value="区块链开发团队">区块链开发团队</option>
 										</select>
 									</td>
 									<td>
 										<select name="object_name" class="form-control form-filter input-sm">
 											<option value="">全部</option>
-											<option value="1">泡面番前端</option>
-											<option value="2">泡面番后端</option>
-											<option value="3">公会系统</option>
-											<option value="4">通行证系统</option>
-                                            <option value="5">聚宝盆系统</option>
-                                            <option value="6">大数据统计</option>
-                                            <option value="7">视频处理</option>
-                                            <option value="8">搜索引擎</option>
-                                            <option value="9">视频实时抓取</option>
-                                            <option value="10">弹幕游戏</option>
-                                            <option value="11">系统监控</option>
-                                            <option value="12">录制工具</option>
-                                            <option value="13">抓娃娃</option>
-                                            <option value="14">站内信</option>
-                                            <option value="15">泡面番app安卓</option>
-                                            <option value="16">泡面番appIOS</option>
-                                            <option value="99">其他</option>
+                                             {% for row1 in objectname_list  %}
+                                                <option value={{ row1.0 }}>{{ row1.1 }}</option>#}
+                                            {% endfor %}
+{#											<option value="1">泡面番前端</option>#}
+{#											<option value="2">泡面番后端</option>#}
+{#											<option value="3">公会系统</option>#}
+{#											<option value="4">通行证系统</option>#}
+{#                                            <option value="5">聚宝盆系统</option>#}
+{#                                            <option value="6">大数据统计</option>#}
+{#                                            <option value="7">视频处理</option>#}
+{#                                            <option value="8">搜索引擎</option>#}
+{#                                            <option value="9">视频实时抓取</option>#}
+{#                                            <option value="10">弹幕游戏</option>#}
+{#                                            <option value="11">系统监控</option>#}
+{#                                            <option value="12">录制工具</option>#}
+{#                                            <option value="13">抓娃娃</option>#}
+{#                                            <option value="14">站内信</option>#}
+{#                                            <option value="15">泡面番app安卓</option>#}
+{#                                            <option value="16">泡面番appIOS</option>#}
+{#                                            <option value="99">其他</option>#}
 
 										</select>
 									</td>
@@ -153,8 +179,14 @@
 								<th>
                                     BUG 名称
 								</th>
+                                 <th>
+                                    BUG 渠道
+								</th>
 								<th class="hidden-xs">
 									 BUG 状态
+								</th>
+                                <th class="hidden-xs">
+									 BUG 等级
 								</th>
 								<th class="hidden-xs">
 									 完成时间
@@ -176,6 +208,17 @@
 								<td>
 									 {{ row.1 }}
 								</td>
+                                <td>
+									{% if row.6 == 0 %}
+                                        测试环境
+                                    {% endif %}
+                                    {% if row.6 == 1 %}
+                                        生产环境
+                                    {% endif %}
+								</td>
+                            	<td>
+									 {{ row.7 }}
+								</td>
 								<td>
 									 {{ row.2 }}
 								</td>
@@ -186,57 +229,58 @@
 									 {{ row.4 }}
 								</td>
                             	<td>
-									  {% if row.5 == '1' %}
-                                            泡面番前端
-                                      {% endif %}
-                                      {% if row.5 == '2' %}
-                                            泡面番后端
-                                      {% endif %}
-                                      {% if row.5 == '3' %}
-                                            公会系统
-                                      {% endif %}
-                                      {% if row.5 == '4' %}
-                                            通行证系统
-                                      {% endif %}
-                                       {% if row.5 == '5' %}
-                                            聚宝盆系统
-                                      {% endif %}
-                                       {% if row.5 == '6' %}
-                                            大数据统计
-                                      {% endif %}
-                                      {% if row.5 == '7' %}
-                                            视频处理
-                                      {% endif %}
-                                      {% if row.5 == '8' %}
-                                            搜索引擎
-                                      {% endif %}
-                                	  {% if row.5 == '9' %}
-                                            视频实时抓取
-                                      {% endif %}
-                                      {% if row.5 == '10' %}
-                                            弹幕游戏
-                                      {% endif %}
-                                      {% if row.5 == '11' %}
-                                            系统监控
-                                      {% endif %}
-                                      {% if row.5 == '12' %}
-                                            录制工具
-                                      {% endif %}
-                                      {% if row.5 == '13' %}
-                                            抓娃娃
-                                      {% endif %}
-                                      {% if row.5 == '14' %}
-                                            站内信
-                                      {% endif %}
-                                      {% if row.5 == '15' %}
-                                            泡面番app安卓
-                                      {% endif %}
-                                      {% if row.5 == '16' %}
-                                            泡面番appIOS
-                                      {% endif %}
-                                      {% if row.5 == '99' %}
-                                            其他
-                                      {% endif %}
+                                    {{ row.5 }}
+{#									  {% if row.5 == '1' %}#}
+{#                                            泡面番前端#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '2' %}#}
+{#                                            泡面番后端#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '3' %}#}
+{#                                            公会系统#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '4' %}#}
+{#                                            通行证系统#}
+{#                                      {% endif %}#}
+{#                                       {% if row.5 == '5' %}#}
+{#                                            聚宝盆系统#}
+{#                                      {% endif %}#}
+{#                                       {% if row.5 == '6' %}#}
+{#                                            大数据统计#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '7' %}#}
+{#                                            视频处理#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '8' %}#}
+{#                                            搜索引擎#}
+{#                                      {% endif %}#}
+{#                                	  {% if row.5 == '9' %}#}
+{#                                            视频实时抓取#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '10' %}#}
+{#                                            弹幕游戏#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '11' %}#}
+{#                                            系统监控#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '12' %}#}
+{#                                            录制工具#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '13' %}#}
+{#                                            抓娃娃#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '14' %}#}
+{#                                            站内信#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '15' %}#}
+{#                                            泡面番app安卓#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '16' %}#}
+{#                                            泡面番appIOS#}
+{#                                      {% endif %}#}
+{#                                      {% if row.5 == '99' %}#}
+{#                                            其他#}
+{#                                      {% endif %}#}
 								</td>
 							</tr>
                             {% endfor %}

@@ -228,18 +228,7 @@ var Index = function () {
             // console.log(newbug7cn);
 
             var visitors2 = jenkins7cn;
-             var visitors3 = [
-                ['01/2013', 500],
-                ['02/2013', 1500],
-                ['03/2013', 2600],
-                ['04/2013', 1200],
-                ['05/2013', 560],
-                ['06/2013', 2000],
-                ['07/2013', 2350],
-                ['08/2013', 1500],
-                ['09/2013', 4700],
-                ['10/2013', 1300],
-            ];
+            var visitors3 = buglevel30cn;
 
             if ($('#site_statistics').size() != 0) {
 
@@ -573,7 +562,7 @@ var Index = function () {
                             var x = item.datapoint[0].toFixed(2),
                                 y = item.datapoint[1].toFixed(2);
 
-                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + ' 条');
+                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + ' 个');
                         }
                     } else {
                         $("#tooltip").remove();

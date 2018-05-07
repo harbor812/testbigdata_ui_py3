@@ -74,11 +74,14 @@
 								<th>
                                     BUG 名称
 								</th>
+                                <th class="hidden-xs">
+									 BUG 等级
+								</th>
 								<th class="hidden-xs">
 									 BUG 状态
 								</th>
 								<th class="hidden-xs">
-									 完成时间
+									 时间
 								</th>
 								<th class="hidden-xs">
 									 项目名称
@@ -97,6 +100,9 @@
 								<td>
 									 {{ row.1 }}
 								</td>
+                                <td>
+									 {{ row.6 }}
+								</td>
 								<td>
 									 {{ row.2 }}
 								</td>
@@ -107,57 +113,7 @@
 									 {{ row.4 }}
 								</td>
                             	<td>
-									  {% if row.5 == '1' %}
-                                            泡面番前端
-                                      {% endif %}
-                                      {% if row.5 == '2' %}
-                                            泡面番后端
-                                      {% endif %}
-                                      {% if row.5 == '3' %}
-                                            公会系统
-                                      {% endif %}
-                                      {% if row.5 == '4' %}
-                                            通行证系统
-                                      {% endif %}
-                                       {% if row.5 == '5' %}
-                                            聚宝盆系统
-                                      {% endif %}
-                                       {% if row.5 == '6' %}
-                                            大数据统计
-                                      {% endif %}
-                                      {% if row.5 == '7' %}
-                                            视频处理
-                                      {% endif %}
-                                      {% if row.5 == '8' %}
-                                            搜索引擎
-                                      {% endif %}
-                                	  {% if row.5 == '9' %}
-                                            视频实时抓取
-                                      {% endif %}
-                                      {% if row.5 == '10' %}
-                                            弹幕游戏
-                                      {% endif %}
-                                      {% if row.5 == '11' %}
-                                            系统监控
-                                      {% endif %}
-                                      {% if row.5 == '12' %}
-                                            录制工具
-                                      {% endif %}
-                                      {% if row.5 == '13' %}
-                                            抓娃娃
-                                      {% endif %}
-                                      {% if row.5 == '14' %}
-                                            站内信
-                                      {% endif %}
-                                      {% if row.5 == '15' %}
-                                            泡面番app安卓
-                                      {% endif %}
-                                      {% if row.5 == '16' %}
-                                            泡面番appIOS
-                                      {% endif %}
-                                      {% if row.5 == '99' %}
-                                            其他
-                                      {% endif %}
+                                     {{ row.5 }}
 								</td>
 							</tr>
                             {% endfor %}

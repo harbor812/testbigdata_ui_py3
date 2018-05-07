@@ -47,7 +47,7 @@
 						</li>
 
 							<a href="/message" target="_blank">
-								 日志信息查看
+								 实时版本发布信息 监控
 							</a>
 
 					</ul>
@@ -70,7 +70,7 @@
 								 新建BUG总数
 							</div>
 						</div>
-						<a class="more" href="/bugmore_detail/'新建'" target="_blank" >
+						<a class="more" href="/bugmore_detail/'新建'-0" target="_blank" >
 							 View more <i class="m-icon-swapright m-icon-white"></i>
 						</a>
 					</div>
@@ -88,7 +88,7 @@
 								 关闭BUG总数
 							</div>
 						</div>
-						<a class="more" href="/bugmore_detail/'完成'" target="_blank">
+						<a class="more" href="/bugmore_detail/'完成'-0" target="_blank">
 							 View more <i class="m-icon-swapright m-icon-white"></i>
 						</a>
 					</div>
@@ -118,13 +118,13 @@
 						</div>
 						<div class="details">
 							<div class="number">
-								 0
+								 {{ onlinebug30count }}
 							</div>
 							<div class="desc">
-								 测试用例总数
+								 遗漏bug数
 							</div>
 						</div>
-						<a class="more" href="#">
+						<a class="more" href=/bugmore_detail/'新建'-1" target="_blank">
 							 View more <i class="m-icon-swapright m-icon-white"></i>
 						</a>
 					</div>
@@ -201,7 +201,7 @@
 					<div class="portlet solid bordered light-grey">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-bar-chart-o"></i>用例设计数，7日统计
+								<i class="fa fa-bar-chart-o"></i>bug 等级，30日统计
 							</div>
 						</div>
 						<div class="portlet-body">
@@ -257,6 +257,8 @@
     var newbug7cn={{newbug7count|safe}};
     var closebug7cn={{closebug7count|safe}};
     var jenkins7cn={{jenkins7count|safe}};
+    var buglevel30cn={{buglevel30count|safe}};
+    var onlinebug30cn={{onlinebug30count|safe}};
 </script>
 <script src={% static "assets/scripts/custom/tasks.js"%} tppabs="http://www.keenthemes.com/preview/metronic_admin/assets/scripts/custom/tasks.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
