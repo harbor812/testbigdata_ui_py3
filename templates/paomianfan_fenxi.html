@@ -168,7 +168,7 @@ overflow: hidden; //超出隐藏
                                                                                 {{ row.1 }}
                                                                             </td>
                                                                             <td >
-                                                                                 <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+                                                                                 <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
                                                                             </td>
                                                                             <td  >
                                                                                  <a href="/jenkins_detail/{{ row.4 }}" target="_blank">{{ row.3 }}</a>
@@ -215,7 +215,7 @@ overflow: hidden; //超出隐藏
                                                                         {{ row.1 }}
                                                                     </td>
                                                                     <td >
-                                                                         <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+                                                                         <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
                                                                     </td>
                                                                 </tr>
                                                                 {% endfor %}
@@ -343,7 +343,7 @@ overflow: hidden; //超出隐藏
                                                                         {{ row.1 }}
                                                                     </td>
                                                                     <td >
-                                                                         <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+                                                                         <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
                                                                     </td>
                                                                     <td  >
                                                                          <a href="/jenkins_detail/{{ row.4 }}" target="_blank">{{ row.3 }}</a>
@@ -391,7 +391,7 @@ overflow: hidden; //超出隐藏
                                                                         {{ row.1 }}
                                                                     </td>
                                                                     <td >
-                                                                         <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+                                                                         <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
                                                                     </td>
                                                                 </tr>
                                                                 {% endfor %}
@@ -460,7 +460,7 @@ overflow: hidden; //超出隐藏
 										{{ row.1 }}
 									</td>
 									<td >
-										 <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+										 <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
 									</td>
 								</tr>
                                 {% endfor %}
@@ -527,7 +527,7 @@ overflow: hidden; //超出隐藏
 										{{ row.1 }}
 									</td>
 									<td >
-										 <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+										 <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
 									</td>
 								</tr>
                                 {% endfor %}
@@ -596,7 +596,7 @@ overflow: hidden; //超出隐藏
                                                                         {{ row.1 }}
                                                                     </td>
                                                                     <td >
-                                                                         <a href="/bug_detail/{{ row.2 }}-'完成'" target="_blank">{{ row.2 }}</a>
+                                                                         <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
                                                                     </td>
                                                                 </tr>
                                                                 {% endfor %}
@@ -612,6 +612,673 @@ overflow: hidden; //超出隐藏
 									</div>
 								</div>
 
+                                <div class="col-md-6">
+									<div class="portlet box red tabbable">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="fa fa-reorder"></i>星球
+											</div>
+										</div>
+										<div class="portlet-body">
+											<div class="tab-head">
+												<ul class="nav nav-tabs">
+													<li>
+														<a href="#xingqiu_tab_3" data-toggle="tab">
+															 Bug 词频榜单
+														</a>
+													</li>
+													<li>
+														<a href="#xingqiu_tab_2" data-toggle="tab">
+															 提交代码解决Bug词频榜单
+														</a>
+													</li>
+													<li class="active">
+														<a href="#xingqiu_tab_1" data-toggle="tab">
+															 程序出现bug频率榜单
+														</a>
+													</li>
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="xingqiu_tab_1">
+                                                        <div class="portlet-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr >
+                                                                    <th >
+                                                                         程序名称
+                                                                    </th >
+                                                                    <th >
+                                                                         bug数
+                                                                    </th>
+                                                                    <th >
+                                                                         提交次数
+                                                                    </th>
+                                                                    <th >
+                                                                         bug率
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                             {% for row in fancommitcode_buglist %}
+
+                                                                <tr class="active" >
+                                                                    <td >
+                                                                         <a href="/changename_analyze/{{ row.0 }}" target="_blank">{{ row.0 }}</a>
+                                                                    </td >
+                                                                    <td >
+                                                                         {% if row.1 == 0 %}
+                                                                            {{ row.1 }}
+                                                                         {% else %}
+                                                                            <a href="/bug_detail/{{ row.4 }}-'新建'" target="_blank">{{ row.1 }}</a>
+                                                                         {% endif %}
+                                                                    </td>
+                                                                    <td >
+                                                                        {{ row.2 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         {{ row.3 }}%
+                                                                    </td>
+
+                                                                </tr>
+                                                                </tr>
+                                                                {% endfor %}
+
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+													</div>
+													<div class="tab-pane" id="xingqiu_tab_2">
+                                                         <div class="portlet-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                    <th>
+                                                                         排序
+                                                                    </th>
+                                                                    <th>
+                                                                         名字
+                                                                    </th>
+                                                                    <th>
+                                                                         词频数
+                                                                    </th>
+                                                                    <th>
+                                                                         bugid
+                                                                    </th>
+                                                                     <th>
+                                                                         提交代码次数
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                             {% for row in fencicommitcodefan_30count_list %}
+
+                                                                <tr class="active" >
+                                                                    <td >
+                                                                         {{ forloop.counter }}
+                                                                    </td >
+                                                                    <td >
+                                                                         {{ row.0 }}
+                                                                    </td>
+                                                                    <td >
+                                                                        {{ row.1 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
+                                                                    </td>
+                                                                    <td  >
+                                                                         <a href="/jenkins_detail/{{ row.4 }}" target="_blank">{{ row.3 }}</a>
+                                                                    </td>
+                                                                </tr>
+                                                                </tr>
+                                                                {% endfor %}
+
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+													</div>
+													<div class="tab-pane" id="xingqiu_tab_3">
+                                                         <div class="portlet-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                    <th>
+                                                                         排序
+                                                                    </th>
+                                                                    <th>
+                                                                         名字
+                                                                    </th>
+                                                                    <th>
+                                                                         词频数
+                                                                    </th>
+                                                                    <td >
+                                                                         bugid
+                                                                    </td>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                             {% for row in fencifan_30count_list %}
+
+                                                                <tr class="active">
+                                                                    <td>
+                                                                         {{ forloop.counter }}
+                                                                    </td>
+                                                                    <td>
+                                                                         {{ row.0 }}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ row.1 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
+                                                                    </td>
+                                                                </tr>
+                                                                {% endfor %}
+
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+            <div class="row">
+								<div class="col-md-6">
+									<div class="portlet box blue tabbable">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="fa fa-reorder"></i>星球IOS
+											</div>
+										</div>
+										<div class="portlet-body">
+											<div class="tab-head">
+												<ul class="nav nav-tabs">
+													<li>
+														<a href="#xingqiuOS_tab_1" data-toggle="tab">
+															 Bug 词频榜单
+														</a>
+													</li>
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="IOS_tab_1">
+                                                        <div class="portlet-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+								<thead>
+								<tr>
+									<th>
+										 排序
+									</th>
+									<th>
+										 名字
+									</th>
+									<th>
+										 词频数
+									</th>
+									<th>
+										 bugid
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+
+                                {% for row in fencifanios_30count_list %}
+
+								<tr class="active">
+									<td>
+										 {{ forloop.counter }}
+									</td>
+									<td>
+										 {{ row.0 }}
+									</td>
+									<td>
+										{{ row.1 }}
+									</td>
+									<td >
+										 <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
+									</td>
+								</tr>
+                                {% endfor %}
+								</tbody>
+								</table>
+							</div>
+						</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="portlet box red tabbable">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="fa fa-reorder"></i>星球Android
+											</div>
+										</div>
+										<div class="portlet-body">
+											<div class="tab-head">
+												<ul class="nav nav-tabs">
+													<li>
+														<a href="#xingqiuandroid_tab_1" data-toggle="tab">
+															 Bug 词频榜单
+														</a>
+													</li>
+
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="android_tab_1">
+                                                        <div class="portlet-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+									<th>
+										 排序
+									</th>
+									<th>
+										 名字
+									</th>
+									<th>
+										 词频数
+									</th>
+									<td >
+										 bugid
+									</td>
+								</tr>
+								</thead>
+								<tbody>
+                             {% for row in fencifanandrodd_30count_list %}
+
+								<tr class="active">
+									<td>
+										 {{ forloop.counter }}
+									</td>
+									<td>
+										 {{ row.0 }}
+									</td>
+									<td>
+										{{ row.1 }}
+									</td>
+									<td >
+										 <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
+									</td>
+								</tr>
+                                {% endfor %}
+
+								</tbody>
+								</table>
+							</div>
+						</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+            <div class="row">
+								<div class="col-md-6">
+									<div class="portlet box blue tabbable">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="fa fa-reorder"></i>通行证
+											</div>
+										</div>
+										<div class="portlet-body">
+											<div class="tab-head">
+												<ul class="nav nav-tabs">
+													<li>
+														<a href="#portlet_tab_3" data-toggle="tab">
+															 Bug 词频榜单
+														</a>
+													</li>
+													<li>
+														<a href="#portlet_tab_2" data-toggle="tab">
+															 提交代码解决Bug词频榜单
+														</a>
+													</li>
+													<li class="active">
+														<a href="#portlet_tab_1" data-toggle="tab">
+															 程序出现bug频率榜单
+														</a>
+													</li>
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="portlet_tab_1">
+                                                        <div class="portlet-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                <tr >
+                                                                    <th >
+                                                                         程序名称
+                                                                    </th >
+                                                                    <th >
+                                                                         bug数
+                                                                    </th>
+                                                                    <th >
+                                                                         提交次数
+                                                                    </th>
+                                                                    <th >
+                                                                         bug率
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody style="width: 10px">
+
+                                                                {% for row in tongxingzhengcommitcode_buglist %}
+
+                                                                <tr class="active" >
+                                                                    <td >
+                                                                         <a href="/changename_analyze/{{ row.0 }}" target="_blank">{{ row.0 }}</a>
+                                                                    </td >
+                                                                    <td >
+                                                                         {% if row.1 == 0 %}
+                                                                            {{ row.1 }}
+                                                                         {% else %}
+                                                                            <a href="/bug_detail/{{ row.4 }}-'新建'" target="_blank">{{ row.1 }}</a>
+                                                                         {% endif %}
+                                                                    </td>
+                                                                    <td >
+                                                                        {{ row.2 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         {{ row.3 }}%
+                                                                    </td>
+
+                                                                </tr>
+                                                                {% endfor %}
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+													</div>
+													<div class="tab-pane" id="portlet_tab_2">
+                                                           <div class="portlet-body">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                        <tr >
+                                                                            <th >
+                                                                                 排序
+                                                                            </th >
+                                                                            <th >
+                                                                                 名字
+                                                                            </th>
+                                                                            <th >
+                                                                                 词频数
+                                                                            </th>
+                                                                            <th >
+                                                                                 Bugid
+                                                                            </th>
+                                                                            <th  >
+                                                                                 提交代码次数
+                                                                            </th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody style="width: 10px">
+
+                                                                        {% for row in fencicommitcodetongxingzheng_30count_list %}
+
+                                                                        <tr class="active" >
+                                                                            <td >
+                                                                                 {{ forloop.counter }}
+                                                                            </td >
+                                                                            <td >
+                                                                                 {{ row.0 }}
+                                                                            </td>
+                                                                            <td >
+                                                                                {{ row.1 }}
+                                                                            </td>
+                                                                            <td >
+                                                                                 <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
+                                                                            </td>
+                                                                            <td  >
+                                                                                 <a href="/jenkins_detail/{{ row.4 }}" target="_blank">{{ row.3 }}</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        {% endfor %}
+                                                                        </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+													</div>
+													<div class="tab-pane" id="portlet_tab_3">
+                                                          <div class="portlet-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>
+                                                                         排序
+                                                                    </th>
+                                                                    <th>
+                                                                         名字
+                                                                    </th>
+                                                                    <th>
+                                                                         词频数
+                                                                    </th>
+                                                                    <th>
+                                                                         bugid
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                {% for row in fencitongxingzheng_30count_list %}
+
+                                                                <tr class="active">
+                                                                    <td>
+                                                                         {{ forloop.counter }}
+                                                                    </td>
+                                                                    <td>
+                                                                         {{ row.0 }}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ row.1 }}
+                                                                    </td>
+                                                                    <td >
+                                                                         <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>
+                                                                    </td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+{#								<div class="col-md-6">#}
+{#									<div class="portlet box red tabbable">#}
+{#										<div class="portlet-title">#}
+{#											<div class="caption">#}
+{#												<i class="fa fa-reorder"></i>泡面番后端#}
+{#											</div>#}
+{#										</div>#}
+{#										<div class="portlet-body">#}
+{#											<div class="tab-head">#}
+{#												<ul class="nav nav-tabs">#}
+{#													<li>#}
+{#														<a href="#paomianfanhou_tab_3" data-toggle="tab">#}
+{#															 Bug 词频榜单#}
+{#														</a>#}
+{#													</li>#}
+{#													<li>#}
+{#														<a href="#paomianfanhou_tab_2" data-toggle="tab">#}
+{#															 提交代码解决Bug词频榜单#}
+{#														</a>#}
+{#													</li>#}
+{#													<li class="active">#}
+{#														<a href="#paomianfanhou_tab_1" data-toggle="tab">#}
+{#															 程序出现bug频率榜单#}
+{#														</a>#}
+{#													</li>#}
+{#												</ul>#}
+{#												<div class="tab-content">#}
+{#													<div class="tab-pane active" id="paomianfanhou_tab_1">#}
+{#                                                        <div class="portlet-body">#}
+{#                                                            <div class="table-responsive">#}
+{#                                                                <table class="table table-bordered table-hover">#}
+{#                                                                <thead>#}
+{#                                                                    <tr >#}
+{#                                                                    <th >#}
+{#                                                                         程序名称#}
+{#                                                                    </th >#}
+{#                                                                    <th >#}
+{#                                                                         bug数#}
+{#                                                                    </th>#}
+{#                                                                    <th >#}
+{#                                                                         提交次数#}
+{#                                                                    </th>#}
+{#                                                                    <th >#}
+{#                                                                         bug率#}
+{#                                                                    </th>#}
+{#                                                                </tr>#}
+{#                                                                </thead>#}
+{#                                                                <tbody>#}
+{#                                                             {% for row in houcommitcode_buglist %}#}
+{##}
+{#                                                                <tr class="active" >#}
+{#                                                                    <td >#}
+{#                                                                         <a href="/changename_analyze/{{ row.0 }}" target="_blank">{{ row.0 }}</a>#}
+{#                                                                    </td >#}
+{#                                                                    <td >#}
+{#                                                                         {% if row.1 == 0 %}#}
+{#                                                                            {{ row.1 }}#}
+{#                                                                         {% else %}#}
+{#                                                                            <a href="/bug_detail/{{ row.4 }}-'新建'" target="_blank">{{ row.1 }}</a>#}
+{#                                                                         {% endif %}#}
+{#                                                                    </td>#}
+{#                                                                    <td >#}
+{#                                                                        {{ row.2 }}#}
+{#                                                                    </td>#}
+{#                                                                    <td >#}
+{#                                                                         {{ row.3 }}%#}
+{#                                                                    </td>#}
+{##}
+{#                                                                </tr>#}
+{#                                                                </tr>#}
+{#                                                                {% endfor %}#}
+{##}
+{#                                                                </tbody>#}
+{#                                                                </table>#}
+{#                                                            </div>#}
+{#                                                        </div>#}
+{#													</div>#}
+{#													<div class="tab-pane" id="paomianfanhou_tab_2">#}
+{#                                                         <div class="portlet-body">#}
+{#                                                            <div class="table-responsive">#}
+{#                                                                <table class="table table-bordered table-hover">#}
+{#                                                                <thead>#}
+{#                                                                    <tr>#}
+{#                                                                    <th>#}
+{#                                                                         排序#}
+{#                                                                    </th>#}
+{#                                                                    <th>#}
+{#                                                                         名字#}
+{#                                                                    </th>#}
+{#                                                                    <th>#}
+{#                                                                         词频数#}
+{#                                                                    </th>#}
+{#                                                                    <th>#}
+{#                                                                         bugid#}
+{#                                                                    </th>#}
+{#                                                                     <th>#}
+{#                                                                         提交代码次数#}
+{#                                                                    </th>#}
+{#                                                                </tr>#}
+{#                                                                </thead>#}
+{#                                                                <tbody>#}
+{#                                                             {% for row in fencicommitcodehou_30count_list %}#}
+{##}
+{#                                                                <tr class="active" >#}
+{#                                                                    <td >#}
+{#                                                                         {{ forloop.counter }}#}
+{#                                                                    </td >#}
+{#                                                                    <td >#}
+{#                                                                         {{ row.0 }}#}
+{#                                                                    </td>#}
+{#                                                                    <td >#}
+{#                                                                        {{ row.1 }}#}
+{#                                                                    </td>#}
+{#                                                                    <td >#}
+{#                                                                         <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>#}
+{#                                                                    </td>#}
+{#                                                                    <td  >#}
+{#                                                                         <a href="/jenkins_detail/{{ row.4 }}" target="_blank">{{ row.3 }}</a>#}
+{#                                                                    </td>#}
+{#                                                                </tr>#}
+{#                                                                </tr>#}
+{#                                                                {% endfor %}#}
+{##}
+{#                                                                </tbody>#}
+{#                                                                </table>#}
+{#                                                            </div>#}
+{#                                                        </div>#}
+{#													</div>#}
+{#													<div class="tab-pane" id="paomianfanhou_tab_3">#}
+{#                                                         <div class="portlet-body">#}
+{#                                                            <div class="table-responsive">#}
+{#                                                                <table class="table table-bordered table-hover">#}
+{#                                                                <thead>#}
+{#                                                                    <tr>#}
+{#                                                                    <th>#}
+{#                                                                         排序#}
+{#                                                                    </th>#}
+{#                                                                    <th>#}
+{#                                                                         名字#}
+{#                                                                    </th>#}
+{#                                                                    <th>#}
+{#                                                                         词频数#}
+{#                                                                    </th>#}
+{#                                                                    <td >#}
+{#                                                                         bugid#}
+{#                                                                    </td>#}
+{#                                                                </tr>#}
+{#                                                                </thead>#}
+{#                                                                <tbody>#}
+{#                                                             {% for row in fencihou_30count_list %}#}
+{##}
+{#                                                                <tr class="active">#}
+{#                                                                    <td>#}
+{#                                                                         {{ forloop.counter }}#}
+{#                                                                    </td>#}
+{#                                                                    <td>#}
+{#                                                                         {{ row.0 }}#}
+{#                                                                    </td>#}
+{#                                                                    <td>#}
+{#                                                                        {{ row.1 }}#}
+{#                                                                    </td>#}
+{#                                                                    <td >#}
+{#                                                                         <a href="/bug_detail/{{ row.2 }}-'新建'" target="_blank">{{ row.2 }}</a>#}
+{#                                                                    </td>#}
+{#                                                                </tr>#}
+{#                                                                {% endfor %}#}
+{##}
+{#                                                                </tbody>#}
+{#                                                                </table>#}
+{#                                                            </div>#}
+{#                                                        </div>#}
+{#													</div>#}
+{#												</div>#}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
 							</div>
 {% endblock %}
 {% block js %}

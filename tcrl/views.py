@@ -125,21 +125,28 @@ def paomianfan_data(request):
          fencihou_30count_list = models.bug.objects.fenci_30count('2')
          fenciios_30count_list=models.bug.objects.fenci_30count('16')
          fenciandrodd_30count_list = models.bug.objects.fenci_30count('15')
-         fencifan_30count_list = models.bug.objects.fenci_30count('18')
-         fencifanios_30count_list = models.bug.objects.fenci_30count('19')
-         fencifanandrodd_30count_list = models.bug.objects.fenci_30count('20')
+         fencifan_30count_list = models.bug.objects.fenci_30count('21')
+         fencifanios_30count_list = models.bug.objects.fenci_30count('22')
+         fencifanandrodd_30count_list = models.bug.objects.fenci_30count('22')
          fencitongxingzheng_30count_list = models.bug.objects.fenci_30count('4')
          tool_30count_list = models.bug.objects.fenci_30count('12')
          fencicommitcodeqian_30count_list = models.bug.objects.fencicommitcode_30count('1')
          fencicommitcodehou_30count_list = models.bug.objects.fencicommitcode_30count('2')
-         fencicommitcodefan_30count_list = models.bug.objects.fencicommitcode_30count('18')
+         fencicommitcodefan_30count_list = models.bug.objects.fencicommitcode_30count('21')
          fencicommitcodetongxingzheng_30count_list = models.bug.objects.fencicommitcode_30count('4')
          qiancommitcode_buglist = models.bug.objects.commitcode_bug('1')
          houcommitcode_buglist = models.bug.objects.commitcode_bug('2')
-         fancommitcode_buglist = models.bug.objects.commitcode_bug('18')
+         fancommitcode_buglist = models.bug.objects.commitcode_bug('21')
          tongxingzhengcommitcode_buglist = models.bug.objects.commitcode_bug('4')
 
+         fencifanqianbao_30count_list = models.bug.objects.fenci_30count('18')
+         fencicommitcodefanqianbao_30count_list = models.bug.objects.fencicommitcode_30count('18')
+         fanqianbaocommitcode_buglist = models.bug.objects.commitcode_bug('18')
+
          return render_to_response('paomianfan_fenxi.html',{'username':username,
+                                                       'fencifanqianbao_30count_list': fencifanqianbao_30count_list,
+                                                       'fencicommitcodefanqianbao_30count_list': fencicommitcodefanqianbao_30count_list,
+                                                       'fanqianbaocommitcode_buglist': fanqianbaocommitcode_buglist,
                                                        'fencitongxingzheng_30count_list': fencitongxingzheng_30count_list,
                                                        'fencicommitcodetongxingzheng_30count_list': fencicommitcodetongxingzheng_30count_list,
                                                        'tongxingzhengcommitcode_buglist': tongxingzhengcommitcode_buglist,
@@ -479,7 +486,7 @@ def bug_search(request):
                 date_ff = "bug.date >='1700-00-00' and "
                 date_tt = " bug.date <='2099-12-31' and "
                 main_object_nn = " bug.type in ('泡面番','大数据系统','区块链开发团队') and "
-                object_nn = " bug.sub_type in (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,99) and "
+                object_nn = " bug.sub_type in (select object_id from object_name) and "
                 is_miss_nn = " bug.is_miss in (0,1)"
                 buglevel_nn = ""
                 # 获取数据
@@ -509,7 +516,10 @@ def bug_search(request):
                 if is_miss:
                     is_miss_nn = " bug.is_miss='" + is_miss + "'"
                 if bug_level:
-                    buglevel_nn = " bug.level_id='" + bug_level + "' and "
+                    if bug_level =='4':
+                        buglevel_nn = " bug.level_id is null and "
+                    else:
+                        buglevel_nn = " bug.level_id='" + bug_level + "' and "
                 sql = bug_idd + bug_namen + status_s + date_ff + date_tt + main_object_nn + object_nn + buglevel_nn + is_miss_nn
                 print("sql:", sql)
                 bug_search_detail_list = models.bug.objects.bug_search_detail(sql)
