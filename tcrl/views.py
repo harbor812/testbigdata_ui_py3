@@ -87,7 +87,8 @@ def index(request):
          closebugcount = models.bug.objects.bug_count('完成')
          jenkinscount = models.bug.objects.jenkins_count()
          newbug7count=models.bug.objects.bug_7count('新建')
-         closebug7count = models.bug.objects.bug_7count('完成')
+         # closebug7count = models.bug.objects.bug_7count('完成')
+         bugtagl30count=models.bug.objects.bugtagl30_count()
          jenkins7count = models.bug.objects.jenkins_7count()
          buglevel30count = models.bug.objects.buglevel30_count()
          onlinebug30count= models.bug.objects.onlinebug30_count()
@@ -97,7 +98,7 @@ def index(request):
                                     'closebugcount':closebugcount,
                                     'jenkinscount':jenkinscount,
                                     'newbug7count':json.dumps(newbug7count,separators=(',',':')),
-                                    'closebug7count':json.dumps(closebug7count,separators=(',',':')),
+                                    'bugtagl30count':json.dumps(bugtagl30count,separators=(',',':')),
                                     'buglevel30count': json.dumps(buglevel30count, separators=(',', ':')),
                                     'onlinebug30count': onlinebug30count,
                                     'jenkins7count':json.dumps(jenkins7count,separators=(',',':'))
@@ -124,7 +125,7 @@ def paomianfan_data(request):
          fenciqian_30count_list=models.bug.objects.fenci_30count('1')
          fencihou_30count_list = models.bug.objects.fenci_30count('2')
          fenciios_30count_list=models.bug.objects.fenci_30count('16')
-         fenciandrodd_30count_list = models.bug.objects.fenci_30count('15')
+         fenciandrodd_30count_list = models.bug.objects.fenci_30count('25')
          fencifan_30count_list = models.bug.objects.fenci_30count('21')
          fencifanios_30count_list = models.bug.objects.fenci_30count('22')
          fencifanandrodd_30count_list = models.bug.objects.fenci_30count('22')
@@ -143,7 +144,14 @@ def paomianfan_data(request):
          fencicommitcodefanqianbao_30count_list = models.bug.objects.fencicommitcode_30count('18')
          fanqianbaocommitcode_buglist = models.bug.objects.commitcode_bug('18')
 
+         fencixqgame_30count_list = models.bug.objects.fenci_30count('24')
+         fencicommitcodexqgame_30count_list = models.bug.objects.fencicommitcode_30count('24')
+         xqgamecommitcode_buglist = models.bug.objects.commitcode_bug('24')
+
          return render_to_response('paomianfan_fenxi.html',{'username':username,
+                                                       'fencixqgame_30count_list': fencixqgame_30count_list,
+                                                       'fencicommitcodexqgame_30count_list': fencicommitcodexqgame_30count_list,
+                                                       'xqgamecommitcode_buglist': xqgamecommitcode_buglist,
                                                        'fencifanqianbao_30count_list': fencifanqianbao_30count_list,
                                                        'fencicommitcodefanqianbao_30count_list': fencicommitcodefanqianbao_30count_list,
                                                        'fanqianbaocommitcode_buglist': fanqianbaocommitcode_buglist,
@@ -264,7 +272,10 @@ def bugmore_detail(request, page,page1):
             userdata = models.User.objects.filter(username__contains=username)
             for row in userdata:
                 username = row.nickname
-                if page1 == '1':
+                print(page1)
+                page1=int(page1)
+                if page1 == 1:
+                    print(page1)
                     page1= " and is_miss=1"
                 else:
                     page1=''
@@ -276,6 +287,28 @@ def bugmore_detail(request, page,page1):
             response = HttpResponseRedirect('/login/')
             return response
 
+# @cache_page(60 * 10)  # 秒数，这里指缓存 15 分钟，不直接写900是为了提高可读性
+# def bugmissmore_detail(request, page, page1):
+#             username = request.COOKIES.get('username', '')
+#             if username:
+#                 print("进入 bug_detail:", username)
+#                 userdata = models.User.objects.filter(username__contains=username)
+#                 for row in userdata:
+#                     username = row.nickname
+#                     print(page1)
+#                     page1 = int(page1)
+#                     if page1 == 1:
+#                         print(page1)
+#                         page1 = " and is_miss=1"
+#                     else:
+#                         page1 = ''
+#                     bug_count_list = models.bug.objects.bugmore_detail(page, page1)
+#                 return render_to_response('table_bugmiss.html', {'username': username,
+#                                                                   'bug_count_list': bug_count_list}
+#                                           )
+#             else:
+#                 response = HttpResponseRedirect('/login/')
+#                 return response
 # 进入bug查询列表
 @cache_page(60 * 10)  # 秒数，这里指缓存 15 分钟，不直接写900是为了提高可读性
 def bugname_detail(request, page, page1,page2):
@@ -396,7 +429,7 @@ def day_search(request):
             print("调 POST")
             date_ff="day_statistics.date >='1700-00-00' and "
             date_tt = " day_statistics.date <='2099-12-31' and "
-            object_nn=" day_statistics.object_id in (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,99)"
+            object_nn=" day_statistics.object_id in (select object_id from object_name)"
             #获取用户名和密码
             date_from = request.POST.get('date_from')
             date_to = request.POST.get('date_to')
@@ -438,7 +471,7 @@ def jenkins_search(request):
             change_namec=""
             date_ff="jenkins_source.date >='1700-00-00' and "
             date_tt = " jenkins_source.date <='2099-12-31' and "
-            object_nn=" jenkins_source.object_id in (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,99)"
+            object_nn=" jenkins_source.object_id in (select object_id from object_name)"
             # 获取数据
             commitcode = request.POST.get('commitcode')
             change_name = request.POST.get('change_name')
@@ -485,7 +518,7 @@ def bug_search(request):
                 status_s=" bug.bug_status in ('新建','已提交','完成') and "
                 date_ff = "bug.date >='1700-00-00' and "
                 date_tt = " bug.date <='2099-12-31' and "
-                main_object_nn = " bug.type in ('泡面番','大数据系统','区块链开发团队') and "
+                main_object_nn = " bug.type in ('泡面番','大数据系统','区块链开发团队','应用中心系统') and "
                 object_nn = " bug.sub_type in (select object_id from object_name) and "
                 is_miss_nn = " bug.is_miss in (0,1)"
                 buglevel_nn = ""

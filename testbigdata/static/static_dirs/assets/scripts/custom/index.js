@@ -224,7 +224,7 @@ var Index = function () {
             }
 
             var visitors = newbug7cn;
-            var visitors1 = closebug7cn;
+            var visitors1 = bugtagl30count;
             // console.log(newbug7cn);
 
             var visitors2 = jenkins7cn;

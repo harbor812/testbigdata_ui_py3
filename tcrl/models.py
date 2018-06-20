@@ -28,17 +28,23 @@ class testbigdata(models.Manager):
     def bug_7count(self,st):
         datem = '%Y/%m/%d'
         cursor = connection.cursor()
-        cursor.execute("""select date_format(date,%s),count(*) from bug where bug_status=%s and DATE_SUB(CURDATE(), INTERVAL 7 DAY) <=date(date) GROUP BY date_format(date,%s)""",[datem,st,datem])
+        cursor.execute("""select date_format(date,%s),count(*) from bug where bug_status=%s and DATE_SUB(CURDATE(), INTERVAL 30 DAY) <=date(date) GROUP BY date_format(date,%s)""",[datem,st,datem])
         row=cursor.fetchall()
         return row
     def jenkins_7count(self,):
         datem = '%Y/%m/%d'
         cursor = connection.cursor()
-        cursor.execute("""select date_format(date,%s),count(*) from jenkins_source where  DATE_SUB(CURDATE(), INTERVAL 7 DAY) <=date(date) GROUP BY date_format(date,%s)""",[datem,datem])
+        cursor.execute("""select date_format(date,%s),count(*) from jenkins_source where  DATE_SUB(CURDATE(), INTERVAL 30 DAY) <=date(date) GROUP BY date_format(date,%s)""",[datem,datem])
         row =cursor.fetchall()
         return row
     def buglevel30_count(self):
         sql ="""select ifnull(level_id,4) as lv_id,count(*) from bug where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <=date(date) and bug_status= '新建' GROUP BY LEVEL_id  order by lv_id"""
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        row =cursor.fetchall()
+        return row
+    def bugtagl30_count(self):
+        sql ="""select tag_name,count(*) from bug where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <=date(date) and tag_name is not null GROUP BY tag_name """
         cursor = connection.cursor()
         cursor.execute(sql)
         row =cursor.fetchall()
@@ -51,7 +57,7 @@ class testbigdata(models.Manager):
 
     def fenci_30count(self,st):
         cursor = connection.cursor()
-        cursor.execute("""select keyword,sum(count_num) as sm,GROUP_CONCAT(DISTINCT bug_id) as bug_id from day_keywords where object_id =%s and DATE_SUB(CURDATE(), INTERVAL 30 DAY) <=date(day) GROUP BY keyword ORDER BY sm desc LIMIT 10 """,[st])
+        cursor.execute("""select tag_name,count(*) as cn,GROUP_CONCAT(DISTINCT bug_id) from bug where sub_type=%s and bug_status='新建' and DATE_SUB(CURDATE(), INTERVAL 30 DAY) <=date(date) GROUP BY tag_name ORDER BY cn desc """,[st])
         row =cursor.fetchall()
         return row
     def fencicommitcode_30count(self,st):
@@ -61,7 +67,7 @@ class testbigdata(models.Manager):
         return row
 
     def bug_detail(self,st,st1):
-        sql ='select bug.bug_id,bug.bug_name,bug.bug_status,bug.date,bug.type,object_name.object_name.bug.level_id from bug,object_name where bug.sub_type=object_name.object_id and bug_id  in (%s) and bug_status=%s'%(st,st1)
+        sql ='select bug.bug_id,bug.bug_name,bug.bug_status,bug.date,bug.type,object_name.object_name,bug.level_id from bug,object_name where bug.sub_type=object_name.object_id and bug_id  in (%s) and bug_status=%s'%(st,st1)
         cursor = connection.cursor()
         cursor.execute(sql)
         row =cursor.fetchall()
