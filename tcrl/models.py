@@ -145,6 +145,11 @@ class testbigdata(models.Manager):
         cursor.execute(sql)
         row =cursor.fetchall()
         return row
+    def changename_comment_sel(self,st):
+        cursor = connection.cursor()
+        cursor.execute("""select ifnull(if_cn,0),ifnull(for_cn,0),ifnull(switch_cn,0),ifnull(while_cn,0) from changename_comment where %s"""%(st))
+        row =cursor.fetchone()
+        return row
 class bug(models.Model):
   bug_status = models.CharField(max_length=50)
   objects = testbigdata()

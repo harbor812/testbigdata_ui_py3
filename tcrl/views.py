@@ -46,7 +46,26 @@ from django.views.decorators.cache import cache_page
 #             }
 #         return JsonResponse(d)
 
-
+def getcommentdetail(request):
+    if request.method=='GET':
+        changename=request.GET.get('changename')
+        object_id = request.GET.get('object_id')
+        comment = request.GET.get('comment')
+    if request.method == 'POST':
+        changename=request.POST.get('changename')
+        object_id = request.POST.get('object_id')
+        comment = request.POST.get('comment')
+    if changename !='' and object_id !='' and comment !='':
+        sql='changename like \'%'+ changename +'%\' and object_id ='+ object_id +' and  comment= \''+ comment + '\''
+        com_detail=models.bug.objects.changename_comment_sel(sql)
+        # print("############,"+com_detail)
+        if com_detail !=None:
+            json_code={'if_cn':com_detail[0],'for_cn':com_detail[1],'switch_cn':com_detail[2],'while_cn':com_detail[3]}
+        else:
+            json_code={'message':0}
+    else:
+        json_code = {'error': 'Filed can not null'}
+    return JsonResponse(json_code)
 #登录页
 def login(request):
     print("进入:",request)

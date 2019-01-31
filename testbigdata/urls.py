@@ -19,6 +19,7 @@ from tcrl import views
 
 urlpatterns = [
     # url(r'^test/$', views.GetMessageView.as_view()),
+	url(r'^getcommentdetail', views.getcommentdetail, name='getcommentdetail'),
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.login, name='login'),
     url(r'^login', views.login, name='login'),
